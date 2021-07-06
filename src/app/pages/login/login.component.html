@@ -1,0 +1,33 @@
+   <form [formGroup]="this.formLogin">
+    <div class="group">
+      <input type="usuario"  formControlName="usuario" name="usuario" ><span class="highlight"></span><span class="bar"></span>
+      <label>usuario</label>
+    </div>
+    <div class="group">
+      <input type="password" formControlName="password" name="password"><span class="highlight" ></span><span class="bar"></span>
+      <label>password</label>
+    </div>
+    <button type="button" class="button buttonBlue" (click)="hacerLogin()" >Ingresar
+      <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+    </button>
+  </form> 
+  
+   <!-- <div class="login-wrapper" >
+    <form action="" class="form" [formGroup]="this.formLogin">     
+       <img src="img/avatar.png" alt="">            
+       <h2>Login</h2>        
+       <div class="input-group">        
+           <input type="text" name="usuario" id="usuario" required>    
+           <label for="usuario">Nombre USUARIO</label>
+       </div>
+       <div class="input-group">        
+           <input type="password" name="password" id="password" required>    
+           <label for="password">Password</label>
+       </div>        
+    <input type="submit" value="Login" click="hacerLogin()"  class="submit-btn"> 
+   <button type="button" class="button buttonBlue" >Ingresar
+    <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+  </button>
+   <a href="#forgot-pw" class="forgot-pw">¿Olvidaste la Contraseña?</a>        
+   </form>
+   </div>  -->

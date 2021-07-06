@@ -1,0 +1,39 @@
+<form [formGroup]="this.formCrearUsuario" >
+    <mat-form-field appearance="fill">
+        <mat-label>Usuario</mat-label>
+        <input matInput formControlName="usuario">
+     </mat-form-field>
+     <div *ngIf="this.formCrearUsuario.get('usuario')?.errors && this.formCrearUsuario.get('usuario')?.dirty">
+         <p *ngIf="this.formCrearUsuario.get('usuario')?.hasError('required')"> El campo usuario es obligatorio</p>
+     </div>
+     
+      <mat-form-field appearance="fill">
+        <mat-label>correo</mat-label>
+        <input matInput formControlName="correo">
+     </mat-form-field>
+     <div *ngIf="this.formCrearUsuario.get('correo')?.errors && this.formCrearUsuario.get('correo')?.dirty">
+         <p *ngIf="this.formCrearUsuario.get('correo')?.hasError('required')"> El campo correo es obligatorio</p>
+     </div>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Contaseña</mat-label>
+        <input matInput formControlName="password">
+     </mat-form-field>
+     <div *ngIf="this.formCrearUsuario.get('password')?.errors && this.formCrearUsuario.get('password')?.dirty">
+         <p *ngIf="this.formCrearUsuario.get('password')?.hasError('required')"> El campo contraseña es obligatorio</p>
+     </div>
+     <mat-form-field appearance="fill">
+        <mat-label>Repetir contraseña</mat-label>
+        <input matInput formControlName="repetircontrasena">
+     </mat-form-field>
+     <div *ngIf="this.formCrearUsuario.get('repetircontrasena')?.errors && this.formCrearUsuario.get('repetircontrasena')?.dirty">
+         <p *ngIf="this.formCrearUsuario.get('repetircontrasena')?.hasError('required')"> El campo repetir contraseña es obligatorio</p>
+     </div>
+<div *ngIf="this.formCrearUsuario.get('password')?.value!=this.formCrearUsuario.get('repetircontrasena')?.value">
+         <p > El campo contraseña y repetir contraseña deben ser iguales</p>
+     </div>
+    <button mat-raised-button color="primary" (click)="guardarUsuario()">Guardar usuario</button>
+    <button mat-raised-button (click)="goBack()">Volver</button>
+</form>
+
+

@@ -1,13 +1,9 @@
-import { usuario } from './../../../../../Back/interfaces/usuario.interfaces';
-import { Response } from 'express';
 import { Component, OnInit, NgModule } from '@angular/core';
 import {Router,NavigationEnd} from '@angular/router';
 import {FormBuilder,Validators} from '@angular/forms';
 import { LoginService } from 'src/app/services/login.service';
 import {AuthService} from '../../services/auth.service';
 import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
-import IrepBackend from 'src/app/interfaces/IrespBackend';
-
 
 @Component({
   selector: 'app-login',

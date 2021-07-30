@@ -4,4 +4,4 @@ export default interface IrepBackend{
     data:{},
     token:string
 }
-//esto son las tipicas respuestas, sino simppre hecer que mande lo mismo
+//esto son las tipicas respuestas, sino simpre hecer que mande lo mismo

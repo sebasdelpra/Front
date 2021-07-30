@@ -2,13 +2,17 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import IrespBackend from '../interfaces/IrespBackend';
 
+
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class MailService {
 
   constructor(private http:HttpClient) { }
-  login(loginForm:{}){
-    return this.http.post<IrespBackend>('http://localhost:3000/usuario/login',loginForm)
+  
+  reset(resetForm:{}){
+    console.log(' ---->> estoy en mail.service.ts');   
+    return this.http.post<IrespBackend>('http://localhost:3000/mail',resetForm)
   }
 }
+

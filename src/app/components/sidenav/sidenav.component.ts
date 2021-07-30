@@ -14,19 +14,13 @@ export class SidenavComponent implements OnInit {
 
   //fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
   fillerNav=[
-    {name:"Listar Usuarios",route:"/listarusuarios",icon:"home"},
-    {name:"Usuarios",route:"/usuarios",icon:"dashboard"},//<span class="material-icons-outlined">
-    {name:"Crear Usuario",route:"/altamodificacion",icon:"event"},
-    {name:"Categorias",route:"",icon:" list_alt"}
-
+    {name:"",route:"",icon:""}
+    
   ]
   fillerNavUsuarios=[
     {name:"Listar Usuarios",route:"/listarusuarios",icon:"home"},
-    {name:"Modificar Usuario",route:"/altamodificacion",icon:"dashboard"},//<span class="material-icons-outlined">
-    {name:"Crear Usuario",route:"/altamodificacion",icon:"event"},
-    {name:"Categorias",route:"",icon:"schedule"}
-
-  ]
+    {name:"Modificar Usuario",route:"/usuarios",icon:"dashboard"}
+    ]
 
   fillerContent = Array.from({length: 50}, () =>
       `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
@@ -47,7 +41,7 @@ export class SidenavComponent implements OnInit {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
   logaut(){
-    console.log('aquie sale');
+    console.log('aqui sale');
     this.authService.logoaut();
     this.router.navigate(['/login']);
   }

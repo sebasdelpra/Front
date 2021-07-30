@@ -1,79 +1,93 @@
-<form [formGroup]="this.formCrearUsuario" >
- 
-    <mat-form-field appearance="fill">
-        <mat-label>nombre</mat-label>
-        <input matInput formControlName="nombre">
-     </mat-form-field>
-     <div *ngIf="this.formCrearUsuario.get('nombre')?.errors && this.formCrearUsuario.get('nombre')?.dirty">
-         <p *ngIf="this.formCrearUsuario.get('nombre')?.hasError('required')"> El campo nombre es obligatorio</p>
-     </div>
+<body> 
+    <div class="modificaciones-wrapper">         
+        <form action="" class="form">   
+        <form [formGroup]="this.formUsuarioModificar" >   
+             <div class="row"> 
+                          
+                    <input hidden="true" matInput formControlName="ID_Usuario" [(ngModel)]="ID_Usuario" name="ID_Usuario" type="text"><br>
+                 
+            </div>      
 
-     <mat-form-field appearance="fill">
-        <mat-label>apellido</mat-label>
-        <input matInput formControlName="apellido">
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-        <mat-label>tipo_doc</mat-label>
-        <select matNativeControl formControlName="tipo_doc">
-            <option value="DNI">DNI</option>
-            <option value="Pasaporte">Pasaporte</option>
-        </select>
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Sucursal</mat-label>
-        <select matNativeControl formControlName="Sucursal">
-            <option value="Corrientes">Corrientes</option>
-            <option value="Formosa">Formosa</option>
-            <option value="Buenos Aires">Buenos Aires</option>
-            <option value="Rosario">Rosario</option>
-        </select>
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>numero_doc</mat-label>
-        <input matInput formControlName="numero_doc">
-    </mat-form-field>
-    <div *ngIf="this.formCrearUsuario.get('numero_doc')?.errors && this.formCrearUsuario.get('numero_doc')?.dirty">
-        <p *ngIf="this.formCrearUsuario.get('numero_doc')?.hasError('required')"> El numero de documneto es obligatorio</p>
-        <p *ngIf="this.formCrearUsuario.get('numero_doc')?.hasError('maxlength')">Debe ingresar 8 digitos</p>
-        <p *ngIf="this.formCrearUsuario.get('numero_doc')?.hasError('minlength')">Debe ingresar 8 digitos</p>
-    </div>
-
-
-    <mat-form-field appearance="fill">
-        <mat-label>edad</mat-label>
-        <input matInput (change)="validarEdad()" formControlName="edad">
-    </mat-form-field>
-       <!--:[],
-      telefono:[],
-      edad_totpr:[],
-      password:[] -->
-      <mat-form-field appearance="fill">
-        <mat-label>email</mat-label>
-        <input matInput formControlName="email">
-    </mat-form-field>
-    <!-- Aqui *ngif lo que hace es mostrar nombre tutor solo si la edad es menor a 18  -->
-    <mat-form-field appearance="fill" *ngIf="this.formCrearUsuario.get('edad')?.value < 18">
-        <mat-label>nombre_tutor</mat-label>
-        <input matInput formControlName="nombre_tutor">
-    </mat-form-field>
-    <!-- <mat-form-field appearance="fill" *ngIf="this.formCrearUsuario.get('Sucursal')?.value =='Corrientes' as value; else elseBlock" >
-        <mat-label>telefono</mat-label>
-        <input matInput formControlName="telefono"> {{this.formCrearUsuario.get('telefono')?.setValue('3794')}}
-    </mat-form-field> -->
-    <mat-form-field appearance="fill" >
-        <mat-label>telefono</mat-label>
-        <input matInput formControlName="telefono">
-    </mat-form-field>
-    <div *ngIf="this.formCrearUsuario.get('telefono')?.errors && this.formCrearUsuario.get('telefono')?.dirty">
-        <p *ngIf="this.formCrearUsuario.get('telefono')?.hasError('required')"> El numero de telefono es obligatorio</p>
-        <p *ngIf="this.formCrearUsuario.get('telefono')?.hasError('pattern')">Solo puede ingresar nuemeros</p>
-        <p *ngIf="this.formCrearUsuario.get('telefono')?.hasError('maxlength')">Supera la longitud de campo</p>
-    </div>
-    <!-- <ng-template #thenBlock>this.formCrearUsuario.get('telefono')?.setValue('3794')</ng-template> -->
-<ng-template #elseBlock></ng-template>
-
-    <button mat-raised-button color="primary" (click)="registro()">Registrar</button>
-    <button mat-raised-button (click)="goBack()">Volver</button>
-</form>
-
+            <div class="row" >                                  
+                <mat-form-field appearance="fill">
+                    <div class="input-group-BIG">       
+                    <mat-label>USUARIO</mat-label>                    
+                    <input matInput formControlName="usuario" [(ngModel)]="usuario" name="usuario" type="text"><br>
+                    </div>
+                </mat-form-field>                             
+                
+                <div *ngIf="this.formUsuarioModificar.get('usuario')?.errors && this.formUsuarioModificar.get('usuario')?.dirty">
+                    <p class="colorRojo" *ngIf="this.formUsuarioModificar.get('usuario')?.hasError('required')">El campo USUARIO es obligatorio</p>
+                    <p class="colorRojo" *ngIf="this.formUsuarioModificar.get('usuario')?.hasError('maxlength')">Supera la longitud de campo</p>
+                    <p class="colorRojo" *ngIf="this.formUsuarioModificar.get('usuario')?.hasError('pattern')">Solo puede ingresar texto</p>                
+                </div>    
+            </div>
+    
+            <div class="row">                      
+                
+                    <div class="input-group">        
+                    <mat-label>Nombre</mat-label>                    
+                    <input matInput formControlName="nombre" [(ngModel)]="nombre" name="nombre" type="nombre"><br>
+                    </div>
+                
+              <div *ngIf="this.formUsuarioModificar.get('nombre')?.errors && 
+                            this.formUsuarioModificar.get('nombre')?.dirty">
+                <p class="colorRojo" *ngIf="this.formUsuarioModificar.get('nombre')?.hasError('required')"> El campo NOMBRE es obligatorio</p>
+                <p class="colorRojo" *ngIf="this.formUsuarioModificar.get('nombre')?.hasError('pattern')">Solo puede ingresar texto</p>
+                <p class="colorRojo" *ngIf="this.formUsuarioModificar.get('nombre')?.hasError('maxlength')">No debe superar los 20 caracteres</p>
+                </div>  
+            </div>
+    
+            <div class="row">   
+                    <div class="input-group">        
+                    <mat-label>Apellido</mat-label>
+                    <input matInput formControlName="apellido" [(ngModel)]="apellido" name="apellido" type="apellido"><br>
+                    </div>
+            
+                
+                <div *ngIf="this.formUsuarioModificar.get('apellido')?.errors && 
+                          this.formUsuarioModificar.get('apellido')?.dirty">
+                    <p class="colorRojo" *ngIf="this.formUsuarioModificar.get('apellido')?.hasError('required')"> El campo APELLIDO es obligatorio</p>
+                    <p class="colorRojo" *ngIf="this.formUsuarioModificar.get('apellido')?.hasError('pattern')">Solo puede ingresar texto</p>
+                    <p class="colorRojo" *ngIf="this.formUsuarioModificar.get('apellido')?.hasError('maxlength')">No debe superar los 20 caracteres</p>
+                </div> 
+            </div>
+                     
+            <div class="row">                                       
+                    <div class="input-group">        
+                    <mat-label>Tipo Doc.</mat-label>
+                    <select matNativeControl formControlName="tipoDocumento" [(ngModel)]="tipoDocumento">                        
+                        <option value="DNI">DNI</option>
+                        <option value="Pasaporte">Pasaporte</option>
+                        <option value="Cedula">Cedula</option>
+                    </select>
+                    </div>
+                
+            </div>
+            
+            <div class="row">                      
+                    <div class="input-group">        
+                    <mat-label>Numero Documento</mat-label>
+                    <input matInput formControlName="numeroDocumento" [(ngModel)]="numeroDocumento" name="numeroDocumento" type="numeroDocumento"><br>
+                    </div>
+                    <div *ngIf="this.formUsuarioModificar.get('numeroDocumento')?.errors && 
+                                this.formUsuarioModificar.get('numeroDocumento')?.dirty">
+                        <p class="colorRojo" *ngIf="this.formUsuarioModificar.get('numeroDocumento')?.hasError('required')"> El numero de documento es obligatorio</p>
+                        <p class="colorRojo" *ngIf="this.formUsuarioModificar.get('numeroDocumento')?.hasError('maxlength')">Debe ingresar 8 digitos</p>
+                        <p class="colorRojo" *ngIf="this.formUsuarioModificar.get('numeroDocumento')?.hasError('minlength')">Debe ingresar 8 digitos</p>
+                        <p class="colorRojo" *ngIf="this.formUsuarioModificar.get('numeroDocumento')?.hasError('pattern')">Solo puede ingresar Números</p>
+                    </div>           
+            </div>
+                
+            
+        <ng-template #elseBlock></ng-template>
+        
+        <div class="row">            
+            
+                <button mat-raised-button color="primary" (click)="registroModificar()">MODIFICAR</button>
+                <button mat-raised-button (click)="goBack()">Volver</button>
+        </div>
+        </form>    
+    </form>
+    </div>   
+</body> 

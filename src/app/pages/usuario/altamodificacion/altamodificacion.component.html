@@ -1,39 +1,122 @@
-<form [formGroup]="this.formCrearUsuario" >
-    <mat-form-field appearance="fill">
-        <mat-label>Usuario</mat-label>
-        <input matInput formControlName="usuario">
-     </mat-form-field>
-     <div *ngIf="this.formCrearUsuario.get('usuario')?.errors && this.formCrearUsuario.get('usuario')?.dirty">
-         <p *ngIf="this.formCrearUsuario.get('usuario')?.hasError('required')"> El campo usuario es obligatorio</p>
-     </div>
-     
-      <mat-form-field appearance="fill">
-        <mat-label>correo</mat-label>
-        <input matInput formControlName="correo">
-     </mat-form-field>
-     <div *ngIf="this.formCrearUsuario.get('correo')?.errors && this.formCrearUsuario.get('correo')?.dirty">
-         <p *ngIf="this.formCrearUsuario.get('correo')?.hasError('required')"> El campo correo es obligatorio</p>
-     </div>
+<body> 
+<div class="altamodificaciones-wrapper">         
+    <form action="" class="form">   
+    <form [formGroup]="this.formUsuarioCrear" >        
+        <div class="row" >                                  
+            <mat-form-field appearance="fill">
+                <div class="input-group-BIG">       
+                <mat-label>USUARIO</mat-label>
+                <input matInput formControlName="usuario">
+                </div>
+            </mat-form-field>            
 
-    <mat-form-field appearance="fill">
-        <mat-label>Contaseña</mat-label>
-        <input matInput formControlName="password">
-     </mat-form-field>
-     <div *ngIf="this.formCrearUsuario.get('password')?.errors && this.formCrearUsuario.get('password')?.dirty">
-         <p *ngIf="this.formCrearUsuario.get('password')?.hasError('required')"> El campo contraseña es obligatorio</p>
-     </div>
-     <mat-form-field appearance="fill">
-        <mat-label>Repetir contraseña</mat-label>
-        <input matInput formControlName="repetircontrasena">
-     </mat-form-field>
-     <div *ngIf="this.formCrearUsuario.get('repetircontrasena')?.errors && this.formCrearUsuario.get('repetircontrasena')?.dirty">
-         <p *ngIf="this.formCrearUsuario.get('repetircontrasena')?.hasError('required')"> El campo repetir contraseña es obligatorio</p>
-     </div>
-<div *ngIf="this.formCrearUsuario.get('password')?.value!=this.formCrearUsuario.get('repetircontrasena')?.value">
-         <p > El campo contraseña y repetir contraseña deben ser iguales</p>
-     </div>
-    <button mat-raised-button color="primary" (click)="guardarUsuario()">Guardar usuario</button>
-    <button mat-raised-button (click)="goBack()">Volver</button>
+            <div *ngIf="this.formUsuarioCrear.get('usuario')?.errors && this.formUsuarioCrear.get('usuario')?.dirty">
+                <p class="colorRojo" *ngIf="this.formUsuarioCrear.get('usuario')?.hasError('required')">El campo USUARIO es obligatorio</p>
+                <p class="colorRojo" *ngIf="this.formUsuarioCrear.get('usuario')?.hasError('maxlength')">Supera la longitud de campo</p>
+                <p class="colorRojo" *ngIf="this.formUsuarioCrear.get('usuario')?.hasError('pattern')">Solo puede ingresar texto</p>                
+            </div>
+        </div>
+
+        <div class="row" >                                  
+            <mat-form-field appearance="fill">
+                <div class="input-group-BIG">        
+                    <mat-label>PASSWORD</mat-label>
+                     <input matInput formControlName="password">
+                </div>
+            </mat-form-field>            
+            <div *ngIf="this.formUsuarioCrear.get('password')?.errors && 
+                        this.formUsuarioCrear.get('password')?.dirty">
+                <p class="colorRojo" *ngIf="this.formUsuarioCrear.get('password')?.hasError('required')"> El campo PASSWORD es obligatorio</p>
+                <p class="colorRojo" *ngIf="this.formUsuarioCrear.get('password')?.hasError('pattern')">8 o mas Caracteres, Mayusculdas/minusculas y singnos especiales</p>
+            </div>          
+        </div>
+        <div class="row">                                  
+            <div class="input-group">        
+                <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="nombre">
+            </div>            
+            <div *ngIf="this.formUsuarioCrear.get('nombre')?.errors && 
+                        this.formUsuarioCrear.get('nombre')?.dirty">
+              <p class="colorRojo" *ngIf="this.formUsuarioCrear.get('nombre')?.hasError('required')"> El campo NOMBRE es obligatorio</p>
+              <p class="colorRojo" *ngIf="this.formUsuarioCrear.get('nombre')?.hasError('pattern')">Solo puede ingresar texto</p>
+              <p class="colorRojo" *ngIf="this.formUsuarioCrear.get('nombre')?.hasError('maxlength')">No debe superar los 20 caracteres</p>
+            </div>          
+        </div>
+
+        <div class="row">   
+            <div class="input-group">        
+                <mat-label>Apellido</mat-label>
+                    <input matInput formControlName="apellido">
+            </div>
+            <div *ngIf="this.formUsuarioCrear.get('apellido')?.errors && 
+                            this.formUsuarioCrear.get('apellido')?.dirty">
+                <p class="colorRojo" *ngIf="this.formUsuarioCrear.get('apellido')?.hasError('required')"> El campo APELLIDO es obligatorio</p>
+                <p class="colorRojo" *ngIf="this.formUsuarioCrear.get('apellido')?.hasError('pattern')">Solo puede ingresar texto</p>
+                <p class="colorRojo" *ngIf="this.formUsuarioCrear.get('apellido')?.hasError('maxlength')">No debe superar los 20 caracteres</p>
+            </div>       
+        </div>
+                
+
+        <div class="row">                                       
+            <div class="input-group">        
+            <mat-label>Tipo Doc.</mat-label>
+            <select matNativeControl formControlName="tipoDocumento">
+                <option value="DNI">DNI</option>
+                <option value="Pasaporte">Pasaporte</option>
+                <option value="Cedula">Cedula</option>
+            </select>
+            </div>            
+        </div>
+        
+        <div class="row">                      
+                <div class="input-group">        
+                <mat-label>Numero Documento</mat-label>
+                <input matInput formControlName="numeroDocumento">
+                </div>
+            <div *ngIf="this.formUsuarioCrear.get('numeroDocumento')?.errors && 
+                        this.formUsuarioCrear.get('numeroDocumento')?.dirty">
+                <p class="colorRojo" *ngIf="this.formUsuarioCrear.get('numeroDocumento')?.hasError('required')"> El numero de documento es obligatorio</p>
+                <p class="colorRojo" *ngIf="this.formUsuarioCrear.get('numeroDocumento')?.hasError('maxlength')">Debe ingresar 8 digitos</p>
+                <p class="colorRojo" *ngIf="this.formUsuarioCrear.get('numeroDocumento')?.hasError('minlength')">Debe ingresar 8 digitos</p>
+                <p class="colorRojo" *ngIf="this.formUsuarioCrear.get('numeroDocumento')?.hasError('pattern')">Solo puede ingresar Números</p>
+            </div>          
+        </div>
+
+<!--           
+        <div class="row">    
+            
+                <div class="input-group">                            
+                    <mat-label>Fecha de Nacimiento</mat-label>
+                    <input matInput [matDatepicker]="FechaNacimiento">
+                    <mat-datepicker-toggle matSuffix [for]="FechaNacimiento"></mat-datepicker-toggle>
+                    <mat-datepicker #FechaNacimiento></mat-datepicker>
+                </div>
+            
+        </div> -->
+
+        <div class="row">                
+            <div class="input-group">             
+                <mat-label>Email</mat-label>
+                    <input matInput formControlName="correo">
+            </div>
+            <div *ngIf="this.formUsuarioCrear.get('email')?.errors && 
+                        this.formUsuarioCrear.get('email')?.dirty">
+                <p *ngIf="this.formUsuarioCrear.get('email')?.hasError('required')">El correo es obligatorio</p>
+                <p *ngIf="this.formUsuarioCrear.get('email')?.hasError('pattern')">Debe ingresar un correo valido</p>
+                <p *ngIf="this.formUsuarioCrear.get('email')?.hasError('maxlength')">Supera la longitud de campo</p>
+            </div>            
+        </div>
+    
+        
+    <ng-template #elseBlock></ng-template>
+    
+    <div class="row">            
+        
+            <button mat-raised-button color="primary" (click)="registroNuevo()">Registrar</button>
+            <button mat-raised-button (click)="goBack()">Volver</button>
+        
+    </div>
+    </form>    
 </form>
-
-
+</div>   
+</body> 

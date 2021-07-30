@@ -1,0 +1,24 @@
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <link rel="stylesheet" href="reset.component.css">
+      <title>Login control inventario</title>
+  </head>
+    <body>             
+    <div class="reset-wrapper">
+       <form action="" class="form">    
+       <button mat-button class="close" (click)="goBack()">#</button> 
+       <form [formGroup]="this.formReset">          
+            <h2>Resetear Password</h2>                            
+            <div class="input-group">            
+                <input type="email" formControlName="email" name="email"  required>
+                <label for="email">Email</label>
+            </div>
+            <input type="submit" value="enviar" (click)="resetearMail()" class="submit-btn"> 
+        </form> 
+      </form>            
+    </div>   
+  </body> 
+</html>
